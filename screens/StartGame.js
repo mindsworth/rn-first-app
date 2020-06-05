@@ -43,6 +43,7 @@ const StartGame = () => {
     setConfirmInput(true);
     setConfirmValue(parsedEnteredValue);
     setEnteredValue("");
+    Keyboard.dismiss();
   };
 
   let confirmedOutput;
