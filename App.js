@@ -12,7 +12,11 @@ export default function App() {
   return (
     <View style={styles.screen}>
       <Header title="Guess a Number" />
-      {userNumber ? <Game /> : <StartGame onStartGame={startGameHandler} />}
+      {userNumber ? (
+        <Game userChoice={userNumber} />
+      ) : (
+        <StartGame onStartGame={startGameHandler} />
+      )}
     </View>
   );
 }
