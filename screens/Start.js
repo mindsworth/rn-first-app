@@ -13,7 +13,7 @@ import Colors from "../constants/colors";
 import Input from "../components/Input";
 import Number from "../components/Number";
 
-const StartGame = () => {
+const StartGame = ({ onStartGame }) => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmInput, setConfirmInput] = useState(false);
   const [confirmValue, setConfirmValue] = useState("");
@@ -53,7 +53,7 @@ const StartGame = () => {
       <Card style={styles.summaryCard}>
         <Text>You selected</Text>
         <Number>{confirmValue}</Number>
-        <Button title="START GAME" />
+        <Button onPress={onStartGame} title="START GAME" />
       </Card>
     );
   }
