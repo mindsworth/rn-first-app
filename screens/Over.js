@@ -1,10 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 
-const Over = () => {
+const Over = ({ userNumber, onRestartGame, rounds }) => {
   return (
     <View style={styles.screen}>
-      <Text>Game is over</Text>
+      <Text style={styles.title}>Game is over</Text>
+      <View style={styles.contWrap}>
+        <Text>User's Number: {userNumber}</Text>
+        <Text>Number of Rounds: {rounds}</Text>
+      </View>
+      <Button title="Restart Game" onPress={onRestartGame} />
     </View>
   );
 };
@@ -14,6 +19,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  title: {
+    fontSize: 32,
+  },
+  contWrap: {
+    marginBottom: 30,
+    marginTop: 30,
+    textAlign: "center",
   },
 });
 
