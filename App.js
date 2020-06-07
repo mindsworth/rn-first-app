@@ -3,20 +3,35 @@ import { StyleSheet, View } from "react-native";
 import Header from "./components/Header";
 import StartGame from "./screens/Start";
 import Game from "./screens/Game";
+import Over from "./screens/Over";
 
 export default function App() {
   const [userNumber, setUserNumber] = useState();
+  const [roundCount, setRoundCount] = useState(0);
+
+  console.log("userNumber :", userNumber);
 
   const startGameHandler = (selectedNumber) => setUserNumber(selectedNumber);
+
+  const endGameHandler = (round) => {
+    console.log("round :===", round);
+    setRoundCount(round);
+  };
+
+  const renderContent = () => {
+    if (userNumber && roundCount <= 0) {
+      return <Game userChoice={userNumber} onEndGame={endGameHandler} />;
+    } else if (roundCount > 0) {
+      return <Over />;
+    }
+
+    return <StartGame onStartGame={startGameHandler} />;
+  };
 
   return (
     <View style={styles.screen}>
       <Header title="Guess a Number" />
-      {userNumber ? (
-        <Game userChoice={userNumber} />
-      ) : (
-        <StartGame onStartGame={startGameHandler} />
-      )}
+      {renderContent()}
     </View>
   );
 }

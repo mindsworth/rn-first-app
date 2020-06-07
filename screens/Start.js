@@ -53,7 +53,7 @@ const StartGame = ({ onStartGame }) => {
       <Card style={styles.summaryCard}>
         <Text>You selected</Text>
         <Number>{confirmValue}</Number>
-        <Button onPress={onStartGame(confirmValue)} title="START GAME" />
+        <Button onPress={() => onStartGame(confirmValue)} title="START GAME" />
       </Card>
     );
   }
