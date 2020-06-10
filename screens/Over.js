@@ -27,6 +27,10 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginTop: 30,
     textAlign: "center",
+    borderColor: "red",
+    borderWidth: 0,
+    backgroundColor: "#f7f7f7",
+    padding: 20,
   },
 });
 
